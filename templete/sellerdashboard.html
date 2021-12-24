@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<!-- 
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Seller Dashboard</h2>
+
+            <h1>Welocome {{user.first_name}}  {{user.last_name}}</h1>
+            <p>{{user.username}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.date_joined}}</p>
+            <p>{{user.last_login}}</p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock myblock %} -->
+
+{% block dashboard %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 ">
+            <h2>Costomer Dashboard</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, repudiandae?</p>
+            <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

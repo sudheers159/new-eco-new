@@ -1,0 +1,57 @@
+{% extends 'dashboard_base.html' %}
+
+<!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Cutomer Dashboard</h2>
+            <h1>Welocome {{user.first_name}}  {{user.last_name}}</h1>
+            <p>{{user.username}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.date_joined}}</p>
+            <p>{{user.last_login}}</p>
+        </div>
+    </div>
+</div> -->
+{% block dashboard %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h1>My Deatails</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-boardered">
+                        <tbody>
+                            <tr>
+                                <th>User ID</th>
+                                <th>{{user.id}}</th>
+                            </tr>
+                            <tr>
+                                <th>Username</th>
+                                <th>{{user.username}}</th>
+                            </tr>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>{{user.first_name}}  {{user.last_name}}</th>
+                            </tr>
+                            <tr>
+                                <th>Last Login</th>
+                                <th>{{user.last_login}}</th>
+                            </tr>
+                            <tr>
+                                <th>Last Joined</th>
+                                <th>{{user.date_joined}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <h2>Costomer Dashboard</h2>
+            <h1>Welcome {{user.first_name}} {{user.last_name}}</h1> -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
