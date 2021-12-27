@@ -97,17 +97,38 @@ def user_login(request):
     print("hello Login")
     return HttpResponse("Called")
 
-# @login_required   
+@login_required   
 def customer(request):
     return render(request, "customer.html")    
 
-# @login_required   
+@login_required   
 def seller(request):
     return render(request, "sellerdashboard.html")    
 
+@login_required   
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/home')
+
+def edit_profile(request):
+    contaxt={}
+    data=register_table.objects.get(user__id=request.user.id)
+    contaxt["data"]=data
+
+    if request.method=="POST":
+        print(request.POST)
+        fn=request.POST["fname"]
+        ln=request.POST["lname"]
+        em=request.POST["email"]
+        con=request.POST["contact"]
+        age=request.POST["age"]
+        ct=request.POST["city"]
+        gen=request.POST["gender"]
+        occ=request.POST["occ"]
+
+
+
+    return render(request, 'edit_profile.html' ,contaxt)
 
 
 

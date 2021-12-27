@@ -67,7 +67,14 @@ class Category_New(models.Model):
 class register_table(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
     contact=models.IntegerField()
-
+    profile_pic=models.ImageField(upload_to="prifile/%y/%m/%d" , null=True)
+    age=models.CharField(max_length=100, null=True, blank=True)
+    city=models.CharField(max_length=100, null=True, blank=True)
+    about=models.TextField( null=True, blank=True)
+    gender=models.CharField(max_length=100, blank=True, default="Male")
+    occupation=models.CharField(max_length=100, null=True, blank=True)
+    added_on=models.DateTimeField(auto_now_add=True, null=True)
+    update_on=models.DateTimeField(auto_now=True, null=True, blank=True)
     def __str__(self):
         return f"{self.user.username}"
         
