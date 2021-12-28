@@ -117,6 +117,7 @@ def edit_profile(request):
 
     if request.method=="POST":
         print(request.POST)
+
         fn=request.POST["fname"]
         ln=request.POST["lname"]
         em=request.POST["email"]
@@ -125,9 +126,28 @@ def edit_profile(request):
         ct=request.POST["city"]
         gen=request.POST["gender"]
         occ=request.POST["occ"]
+        abt=request.POST["about"]
 
 
+        usr=User.objects.get(id=request.user.id)
+        usr.first_name=fn
+        usr.last_name=ln
+        usr.email=em
+        usr.save()
 
+        data.contact=con
+        data.age=age
+        data.city=ct
+        data.gender=gen
+        data.occupation=occ
+        data.about=abt
+        data.save()
+
+        if "image" in request.FILES:
+            img=request.FILES["image"]
+            data.profile_pic=img
+            data.save()
+        contaxt["status"]="changes Save Succcesfully"
     return render(request, 'edit_profile.html' ,contaxt)
 
 
